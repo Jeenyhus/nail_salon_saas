@@ -1,5 +1,5 @@
 from django.db import models
-from .models import Service
+
 """
 This module defines the Service model for the nail salon application.
 
