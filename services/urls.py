@@ -1,9 +1,16 @@
-from django.urls import path
-from .views import ServiceListView, ServiceDetailView, ServiceCreateView, ServiceUpdateView
+from django.urls import path, include
+from . import views
+
 
 urlpatterns = [
-    path('', ServiceListView.as_view(), name='service_list'),
-    path('<int:pk>/', ServiceDetailView.as_view(), name='service_detail'),
-    path('add/', ServiceCreateView.as_view(), name='service_add'),
-    path('<int:pk>/edit/', ServiceUpdateView.as_view(), name='service_edit'),
+    path('catalog/', views.catalog_view, name='catalog'),
+    path('book/<int:service_id>/', views.book_appointment, name='book_appointment'),
+    path('confirm/<int:appointment_id>/', views.confirm_booking, name='confirm_booking'),
+    path('pay/<int:appointment_id>/', views.complete_payment, name='complete_payment'),
+    path('', views.home_view, name='home'),
+    path('about/', views.about_view, name='about'),
+    path('contact/', views.contact_view, name='contact'),
+    path('accounts/signup/', views.signup_view, name='signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ]

@@ -1,0 +1,140 @@
+/* static/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8b400;
+    padding: 1em;
+    text-align: center;
+}
+
+header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.main-content {
+    padding: 2em;
+    text-align: center;
+}
+
+.home-hero {
+    padding: 2em;
+    background-color: #ffe8b6;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.service-card {
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+footer {
+    background-color: #f8b400;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+/* static/css/style.css */
+
+.about-section {
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-section h1, .about-section h2 {
+    color: #f8b400;
+}
+
+.team-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5em;
+}
+
+.team-member {
+    width: 150px;
+    text-align: center;
+}
+
+/* static/css/style.css */
+
+.contact-section {
+    padding: 2em;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-section h1 {
+    color: #f8b400;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: left;
+}
+
+.contact-section label {
+    color: #333;
+}
+
+.contact-section input, .contact-section textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.contact-section button {
+    background-color: #f8b400;
+    color: white;
+    padding: 0.7em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-section button:hover {
+    background-color: #e5a800;
+}
+
+/* static/css/style.css */
+
+.login-section {
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 2em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-section h2 {
+    color: #f8b400;
+}
+
+.login-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

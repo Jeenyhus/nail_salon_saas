@@ -1,0 +1,7 @@
+<h2>Book Appointment for {{ service.name }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="appointment_date">Select Date & Time:</label>
+    <input type="datetime-local" id="appointment_date" name="appointment_date" required>
+    <button type="submit">Confirm and Pay Reservation Fee</button>
+</form>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Nail Business{% endblock %}
+
+{% block content %}
+<div class="home-hero">
+    <h1>Welcome to Nail Business</h1>
+    <p>Your beauty, our passion! Discover our top-quality nail services designed just for you.</p>
+    <a href="{% url 'catalog' %}" class="button">View Services</a>
+</div>
+
+<section class="services-highlight">
+    <h2>Popular Services</h2>
+    <div class="service-cards">
+        {% for service in popular_services %}
+            <div class="service-card">
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.description }}</p>
+                <p>Starting at ${{ service.price }}</p>
+                <a href="{% url 'book_appointment' service.id %}">Book Now</a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

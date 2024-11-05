@@ -1,0 +1,9 @@
+{% for service in services %}
+<div>
+    <h2>{{ service.name }}</h2>
+    <p>{{ service.description }}</p>
+    <p>Duration: {{ service.duration }}</p>
+    <p>Price: ${{ service.price }}</p>
+    <a href="{% url 'book_appointment' service.id %}">Book Now</a>
+</div>
+{% endfor %}
