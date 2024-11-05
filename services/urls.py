@@ -1,18 +1,22 @@
-from django.urls import path, include
-from . import views
-
+from django.urls import path
+from .views import (
+    home, login_view, logout_view, client_dashboard,
+    ServiceListView, ServiceCreateView, ServiceUpdateView,
+    appointment_create, payment_create
+)
 
 urlpatterns = [
-    path('catalog/', views.catalog_view, name='catalog'),
-    path('book/<int:service_id>/', views.book_appointment, name='book_appointment'),
-    path('confirm/<int:appointment_id>/', views.confirm_booking, name='confirm_booking'),
-    path('pay/<int:appointment_id>/', views.complete_payment, name='complete_payment'),
-    path('', views.home_view, name='home'),
-    path('about/', views.about_view, name='about'),
-    path('contact/', views.contact_view, name='contact'),
-    path('accounts/signup/', views.signup_view, name='signup'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('', home, name='home'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('dashboard/', client_dashboard, name='client_dashboard'),
     
-
+    # Admin routes
+    path('services/', ServiceListView.as_view(), name='service_list'),
+    path('services/new/', ServiceCreateView.as_view(), name='service_create'),
+    path('services/<int:pk>/edit/', ServiceUpdateView.as_view(), name='service_update'),
+    
+    # Client routes
+    path('services/<int:service_id>/book/', appointment_create, name='appointment_create'),
+    path('appointments/<int:appointment_id>/pay/', payment_create, name='payment_create'),
 ]
