@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-<h2>Booking Confirmed!</h2>
-<p>Appointment for {{ appointment.service.name }} on {{ appointment.appointment_date }}</p>
-<p>Reservation Fee: ${{ appointment.reservation_fee }} (non-refundable)</p>
-<a href="{% url 'complete_payment' appointment.id %}">Proceed to Final Payment</a>

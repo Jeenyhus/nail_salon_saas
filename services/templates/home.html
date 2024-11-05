@@ -1,29 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}Home - Nail Business{% endblock %}
-
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
 {% block content %}
-<div class="container py-5">
-    <h1 class="text-center mb-4">Popular Services</h1>
+    <h1>Available Services</h1>
     <div class="row">
-        {% for service in popular_services %}
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    {% if service.image %}
-                        <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
-                    {% else %}
-                        <img src="{% static 'default-image.jpg' %}" class="card-img-top" alt="No image available">
-                    {% endif %}
+        {% for service in services %}
+            <div class="col-md-4">
+                <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ service.title }}</h5>
-                        <p class="card-text">{{ service.description|truncatewords:20 }}</p>
-                        <p class="card-text text-primary">Price: ZMW {{ service.price }}</p>
-                        {% comment %} <a href="{% url 'service_detail' service.id %}" class="btn btn-primary">View Service</a> {% endcomment %}
+                        <h5 class="card-title">{{ service.name }}</h5>
+                        <p class="card-text">{{ service.description }}</p>
+                        <a href="{% url 'appointment_create' service.id %}" class="btn btn-primary">Book Appointment</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
-</div>
-
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Service List{% endblock %}
+{% block content %}
+    <h1>Service List</h1>
+    <a href="{% url 'service_create' %}" class="btn btn-success">Create New Service</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>{{ service.id }}</td>
+                    <td>{{ service.name }}</td>
+                    <td>{{ service.description }}</td>
+                    <td>
+                        <a href="{% url 'service_update' service.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'service_delete' service.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

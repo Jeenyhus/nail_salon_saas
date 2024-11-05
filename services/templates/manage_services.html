@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Manage Services</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            {{ form.title.label }} 
+            {{ form.title|add_class:"form-control" }} 
+            {{ form.title.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label }} 
+            {{ form.description|add_class:"form-control" }} 
+            {{ form.description.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.price.label }} 
+            {{ form.price|add_class:"form-control" }} 
+            {{ form.price.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label }} 
+            {{ form.image }} 
+            {{ form.image.errors }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Service</button>
+    </form>
+    <h3>Current Services</h3>
+    <ul>
+        {% for service in services %}
+            <li>
+                <h4>{{ service.title }}</h4>
+                <p>{{ service.description }}</p>
+                <p>Price: ZMW {{ service.price }}</p>
+                <form method="post" action="{% url 'delete_service' service.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

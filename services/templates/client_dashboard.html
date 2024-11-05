@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Client Dashboard{% endblock %}
+{% block content %}
+    <h1>Your Appointments</h1>
+    {% if appointments %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.id }}</td>
+                        <td>{{ appointment.service.name }}</td>
+                        <td>{{ appointment.appointment_date }}</td>
+                        <td>{{ appointment.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+{% endblock %}
